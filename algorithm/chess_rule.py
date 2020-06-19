@@ -3,6 +3,20 @@
 class ChessRule():
     def __init__(self):
         pass
+
+    @staticmethod
+    def is_cross_border(move):
+        """
+        是否越界
+        """
+        pass
+
+    @staticmethod
+    def is_plumule(matrix, move):
+        """
+        能否落子
+        """
+        pass
     
     """
     各个棋子的一步动作的合法性校验
@@ -67,3 +81,5 @@ class ChessRule():
     @staticmethod
     def heizu(matrix, move):
         pass
+
+    

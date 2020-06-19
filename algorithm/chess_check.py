@@ -1,4 +1,4 @@
-
+from chess_rule import *
 
 class ChessCheck():
 
@@ -32,10 +32,21 @@ class ChessCheck():
         """
 
         # 判断是否越界
+        ChessRule.is_cross_border(move)
 
         # 判断该棋子的下棋动作是否符合一步内可达
 
+        # 各个棋子对应的规则函数
+        switch_piece = {
+            1: ChessRule.hongche, 2: ChessRule.hongma, 3: ChessRule.hongxiang, 
+            4: ChessRule.hongshi, 5: ChessRule.hongshuai, 6: ChessRule.hongbing,
+            7: ChessRule.heiche, 8: ChessRule.heima, 9: ChessRule.heixiang, 
+            10: ChessRule.heishi, 11: ChessRule.heijiang, 12: ChessRule.heizu
+        }
+        
+
         # 判断能否吃子
+        ChessRule.is_plumule(matrix, move)
         pass
 
     def is_over(self, code):
