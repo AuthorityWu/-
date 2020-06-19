@@ -98,7 +98,9 @@ class ChessRule():
         sta = [int(move[0]), int(move[1])]
         end = [int(move[2]), int(move[3])]
 
-        if sta[0] == end[0]:
+        if sta[0] == end[0] and sta[1] == end[1]:
+            check = False
+        elif sta[0] == end[0]:
             col = sta[0]
             top = min(sta[1], end[1])
             bottom = max(sta[1], end[1])
@@ -196,7 +198,9 @@ class ChessRule():
         sta = [int(move[0]), int(move[1])]
         end = [int(move[2]), int(move[3])]
         cnt = 0
-        if sta[0] == end[0]:
+        if sta[0] == end[0] and sta[1] == end[1]:
+            check = False
+        elif sta[0] == end[0]:
             col = sta[0]
             top = min(sta[1], end[1])
             bottom = max(sta[1], end[1])
@@ -248,8 +252,10 @@ class ChessRule():
         check = True
         sta = [int(move[0]), int(move[1])]
         end = [int(move[2]), int(move[3])]
-
-        if sta[0] == end[0]:
+        
+        if sta[0] == end[0] and sta[1] == end[1]:
+            check = False
+        elif sta[0] == end[0]:
             col = sta[0]
             top = min(sta[1], end[1])
             bottom = max(sta[1], end[1])
@@ -347,7 +353,9 @@ class ChessRule():
         sta = [int(move[0]), int(move[1])]
         end = [int(move[2]), int(move[3])]
         cnt = 0
-        if sta[0] == end[0]:
+        if sta[0] == end[0] and sta[1] == end[1]:
+            check = False
+        elif sta[0] == end[0]:
             col = sta[0]
             top = min(sta[1], end[1])
             bottom = max(sta[1], end[1])
