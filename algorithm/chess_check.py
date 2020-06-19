@@ -39,7 +39,7 @@ class ChessCheck():
     #     pass
 
     @staticmethod
-    def is_legal(code, matrix, move, color):
+    def is_legal(code, matrix, move):
         """
         判断下棋动作是否合法 
         parm: (棋局状态码, 棋局矩阵, 下棋动作, 下棋方)

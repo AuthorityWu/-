@@ -106,7 +106,7 @@ class ChessRule():
                 if matrix[i,col] != 0:
                     check = False
                     break
-        else:
+        elif sta[1] == end[1]:
             row = sta[1]
             left = min(sta[0], end[0])
             right = max(sta[0], end[0])
@@ -114,6 +114,8 @@ class ChessRule():
                 if matrix[row,i] != 0:
                     check = False
                     break
+        else:
+            check = False
         return check
 
     @staticmethod
@@ -204,7 +206,7 @@ class ChessRule():
                 if cnt > 1:
                     check = False
                     break
-        else:
+        elif sta[1] == end[1]:
             row = sta[1]
             left = min(sta[0], end[0])
             right = max(sta[0], end[0])
@@ -214,6 +216,8 @@ class ChessRule():
                 if cnt > 1:
                     check = False
                     break
+        else:
+            check = False
         jump = cnt
         # 返回是否合法，是否有跳子
         return check, jump
@@ -253,7 +257,7 @@ class ChessRule():
                 if matrix[i,col] != 0:
                     check = False
                     break
-        else:
+        elif sta[1] == end[1]:
             row = sta[1]
             left = min(sta[0], end[0])
             right = max(sta[0], end[0])
@@ -261,6 +265,8 @@ class ChessRule():
                 if matrix[row,i] != 0:
                     check = False
                     break
+        else:
+            check = False
         return check
 
     @staticmethod
@@ -351,7 +357,7 @@ class ChessRule():
                 if cnt > 1:
                     check = False
                     break
-        else:
+        elif sta[1] == end[1]:
             row = sta[1]
             left = min(sta[0], end[0])
             right = max(sta[0], end[0])
@@ -361,6 +367,8 @@ class ChessRule():
                 if cnt > 1:
                     check = False
                     break
+        else:
+            check = False
         # return check
         # 返回是否合法，是否有跳子
         jump = cnt
