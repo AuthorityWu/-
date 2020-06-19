@@ -3,8 +3,8 @@ import os
 
 # print(os.getcwd()) #获取当前工作目录路径
 # print(os.path.abspath('.')) #获取当前工作目录路径
-input_path = "../test_data.json"
-output_path = "../output_chessdata.json"
+input_path = "../data/chessdata.json"
+output_path = "../data/output_chessdata.json"
 
 with open(input_path, "r") as f:
     input_data = json.load(f)
@@ -31,6 +31,7 @@ def data_process(input_data):
     """
     init_default = "8979695949392919097717866646260600102030405060708012720323436383"
 
+    cnt = 0
     for one in input_data:
 
         # init 分割
@@ -49,26 +50,33 @@ def data_process(input_data):
 
         # 模拟棋局
         for move in move_list:
-            ind = init.index(move[:2])
-            if ind < 16:
-                color = -1
-            else:
-                color = 1
-            
-            status = {
-                "init" : ''.join(init),
-                "move" : move,
-                "color" : color,
-                "result" : result
-            }
-            output_data.append(status)
-            # print(status)
-            # 执行下棋
-            if move[2:4] in init:
-                eat_ind = init.index(move[2:4])
-                init[eat_ind] = "99"
-            init[ind] = move[2:4]
+            try:
+                ind = init.index(move[:2])
+                if ind < 16:
+                    color = -1
+                else:
+                    color = 1
+                
+                status = {
+                    "init" : ''.join(init),
+                    "move" : move,
+                    "color" : color,
+                    "result" : result
+                }
+                
+                # print(status)
+                # 执行下棋
+                if move[2:4] in init:
+                    eat_ind = init.index(move[2:4])
+                    init[eat_ind] = "99"
+                init[ind] = move[2:4]
 
+                output_data.append(status)
+            except:
+                print("ERROR ###", cnt)
+                break
+        # print("### ", cnt)        
+        cnt += 1
 
 if __name__ == "__main__":    
     data_process(input_data)
