@@ -51,7 +51,7 @@ def data_process(input_data):
         for move in move_list:
             ind = init.index(move[:2])
             if ind < 16:
-                color = 0
+                color = -1
             else:
                 color = 1
             
