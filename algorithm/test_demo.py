@@ -20,18 +20,17 @@ if __name__ == "__main__":
         # y = np.random.randint(0,10)
         # x = np.random.randint(0,9)
         # one["move"] = one["move"][0:2]+str(x)+str(y)
-        
-        matrix = ChessCheck.code_to_matrix(one["init"])
-        res = ChessCheck.is_legal(one["init"], matrix, one["move"])
+                
+        res = ChessCheck.is_legal(one["init"], one["move"])
         
         if not res:
             print(res)
             cnt +=1 
-            print(matrix)
+            print(ChessCheck.code_to_matrix(one["init"]))
             print(one)
             print("## ", cnt)
+    
     """
-
     # 测试is_over
     """
     cnt = 0
@@ -57,6 +56,7 @@ if __name__ == "__main__":
     """
     
     # 测试get_random_move和move
+    
     init_default = "8979695949392919097717866646260600102030405060708012720323436383"
     ori_mat = ChessCheck.code_to_matrix(init_default)
     ori_init = init_default
@@ -82,6 +82,6 @@ if __name__ == "__main__":
         print(mat)
         print("=========================================")
     print("winer: ", over)
-
+    
 
 

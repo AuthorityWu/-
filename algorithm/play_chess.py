@@ -41,8 +41,7 @@ class PlayChess():
             x = np.random.randint(0,9)
             move = init[random_piece]+str(x)+str(y)
             # 检验
-            mat = ChessCheck.code_to_matrix(code)
-            check = ChessCheck.is_legal(code, mat, move)
+            check = ChessCheck.is_legal(code, move)
         return move
             
     @staticmethod

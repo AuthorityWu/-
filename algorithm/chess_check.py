@@ -39,12 +39,15 @@ class ChessCheck():
     #     pass
 
     @staticmethod
-    def is_legal(code, matrix, move):
+    def is_legal(code, move):
         """
         判断下棋动作是否合法 
-        parm: (棋局状态码, 棋局矩阵, 下棋动作, 下棋方)
+        parm: (棋局状态码, 下棋动作, 下棋方)
         retrun: True/False
         """
+        
+        # 生成棋局矩阵
+        matrix = ChessCheck.code_to_matrix(code)
         # 哪个棋子有动作
         init = num_split(code, step=2)
         piece_num = init.index(move[:2]) + 1
