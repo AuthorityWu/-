@@ -1,6 +1,8 @@
 from data_processing import *
 import numpy as np
 from chess_check import *
+import scipy.stats as st
+from SQLUtil import get_record
 
 class PlayChess():
     def __init__(self):
@@ -13,6 +15,21 @@ class PlayChess():
         parm: (棋局状态码, 下棋方)
         return：(下棋动作)
         """
+        data=get_record(code,color)
+        max_ac=None
+        max_v=0
+        if(data):
+            for record in data:
+                # v = st.norm.cdf(record['result'], loc=0, scale=record['count'])  # 获胜概率
+                # v = v + record['count'] / (v + record['count'])  # 统计次数过少的情况惩罚项
+                # 效果不好，直接选择数量最大的
+                v = record['count']
+                if max_v<v:
+                    max_ac=record
+                    max_v=v
+        if(max_ac):
+            return max_ac['move']
+        else:return None
         pass
 
     @staticmethod
