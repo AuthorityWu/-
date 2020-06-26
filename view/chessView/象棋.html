@@ -1,0 +1,192 @@
+<!DOCTYPE HTML>
+<HTML>
+<head>
+	<meta charset="utf-8" http-equiv="Content-Type" content="application/json; charset=UTF-8"/>
+	<title>象棋小游戏</title>
+	<style>
+	.img_chess{
+		width:100%;
+		height:100%;
+	}
+	.container{
+		position:relative;
+	}
+	</style>
+</head>
+	<body >
+		<div >
+			<div id="Bigcontainer"style="width:530px;height:550px;margin:0 auto;position:relative;background:url(timg.jpg);background-size:100% 100%">
+				<div id="00" class="container" style="width:52px;height:53px;float:left;margin-left:30px;margin-top:10px;opacity:1" onclick="Select('00')">
+					<!--<div style="width:20px;height:20px;position:absolute;left:10px;background-color:red"></div>-->
+				</div>
+				<div id="10" class="container" style="width:52px;height:53px;float:left;margin-top:10px;opacity:1" onclick="Select('10')"></div>
+				<div id="20" class="container" style="width:52px;height:53px;float:left;margin-top:10px;opacity:1" onclick="Select('20')"></div>
+				<div id="30" class="container" style="width:52px;height:53px;float:left;margin-top:10px;opacity:1" onclick="Select('30')"></div>
+				<div id="40" class="container" style="width:52px;height:53px;float:left;margin-top:10px;opacity:1" onclick="Select('40')"></div>
+				<div id="50" class="container" style="width:52px;height:53px;float:left;margin-top:10px;opacity:1" onclick="Select('50')"></div>
+				<div id="60" class="container" style="width:52px;height:53px;float:left;margin-top:10px;opacity:1" onclick="Select('60')"></div>
+				<div id="70" class="container" style="width:52px;height:53px;float:left;margin-top:10px;opacity:1" onclick="Select('70')"></div>
+				<div id="80" class="container" style="width:52px;height:53px;float:left;margin-top:10px;opacity:1" onclick="Select('80')"></div>
+				<div id="01" class="container" style="width:52px;height:53px;float:left;margin-left:30px;opacity:1" onclick="Select('01')"></div>
+				<div id="11" class="container" style="width:52px;height:53px;float:left;opacity:1" onclick="Select('11')"></div>
+				<div id="21" class="container" style="width:52px;height:53px;float:left;opacity:1" onclick="Select('21')"></div>
+				<div id="31" class="container" style="width:52px;height:53px;float:left;opacity:1" onclick="Select('31')"></div>
+				<div id="41" class="container" style="width:52px;height:53px;float:left;opacity:1" onclick="Select('41')"></div>
+				<div id="51" class="container" style="width:52px;height:53px;float:left;opacity:1" onclick="Select('51')"></div>
+				<div id="61" class="container" style="width:52px;height:53px;float:left;opacity:1" onclick="Select('61')"></div>
+				<div id="71" class="container" style="width:52px;height:53px;float:left;opacity:1" onclick="Select('71')"></div>
+				<div id="81" class="container" style="width:52px;height:53px;float:left;opacity:1" onclick="Select('81')"></div>
+				<div id="02" class="container" style="width:52px;height:53px;float:left;margin-left:30px;opacity:1" onclick="Select('02')"></div>
+				<div id="12" class="container" style="width:52px;height:53px;float:left;opacity:1" onclick="Select('12')"></div>
+				<div id="22" class="container" style="width:52px;height:53px;float:left;opacity:1" onclick="Select('22')"></div>
+				<div id="32" class="container" style="width:52px;height:53px;float:left;opacity:1" onclick="Select('32')"></div>
+				<div id="42" class="container" style="width:52px;height:53px;float:left;opacity:1" onclick="Select('42')"></div>
+				<div id="52" class="container" style="width:52px;height:53px;float:left;opacity:1" onclick="Select('52')"></div>
+				<div id="62" class="container" style="width:52px;height:53px;float:left;opacity:1" onclick="Select('62')"></div>
+				<div id="72" class="container" style="width:52px;height:53px;float:left;opacity:1" onclick="Select('72')"></div>
+				<div id="82" class="container" style="width:52px;height:53px;float:left;opacity:1" onclick="Select('82')"></div>
+				<div id="03" class="container" style="width:52px;height:53px;float:left;margin-left:30px;opacity:1" onclick="Select('03')"></div>
+				<div id="13" class="container" style="width:52px;height:53px;float:left;opacity:1" onclick="Select('13')"></div>
+				<div id="23" class="container" style="width:52px;height:53px;float:left;opacity:1" onclick="Select('23')"></div>
+				<div id="33" class="container" style="width:52px;height:53px;float:left;opacity:1" onclick="Select('33')"></div>
+				<div id="43" class="container" style="width:52px;height:53px;float:left;opacity:1" onclick="Select('43')"></div>
+				<div id="53" class="container" style="width:52px;height:53px;float:left;opacity:1" onclick="Select('53')"></div>
+				<div id="63" class="container" style="width:52px;height:53px;float:left;opacity:1" onclick="Select('63')"></div>
+				<div id="73" class="container" style="width:52px;height:53px;float:left;opacity:1" onclick="Select('73')"></div>
+				<div id="83" class="container" style="width:52px;height:53px;float:left;opacity:1" onclick="Select('83')"></div>
+				<div id="04" class="container" style="width:52px;height:53px;float:left;margin-left:30px;opacity:1" onclick="Select('04')"></div>
+				<div id="14" class="container" style="width:52px;height:53px;float:left;opacity:1" onclick="Select('14')"></div>
+				<div id="24" class="container" style="width:52px;height:53px;float:left;opacity:1" onclick="Select('24')"></div>
+				<div id="34" class="container" style="width:52px;height:53px;float:left;opacity:1" onclick="Select('34')"></div>
+				<div id="44" class="container" style="width:52px;height:53px;float:left;opacity:1" onclick="Select('44')"></div>
+				<div id="54" class="container" style="width:52px;height:53px;float:left;opacity:1" onclick="Select('54')"></div>
+				<div id="64" class="container" style="width:52px;height:53px;float:left;opacity:1" onclick="Select('64')"></div>
+				<div id="74" class="container" style="width:52px;height:53px;float:left;opacity:1" onclick="Select('74')"></div>
+				<div id="84" class="container" style="width:52px;height:53px;float:left;opacity:1" onclick="Select('84')"></div>
+				<div id="05" class="container" style="width:52px;height:53px;float:left;margin-left:30px;opacity:1" onclick="Select('05')"></div>
+				<div id="15" class="container" style="width:52px;height:53px;float:left;opacity:1" onclick="Select('15')"></div>
+				<div id="25" class="container" style="width:52px;height:53px;float:left;opacity:1" onclick="Select('25')"></div>
+				<div id="35" class="container" style="width:52px;height:53px;float:left;opacity:1" onclick="Select('35')"></div>
+				<div id="45" class="container" style="width:52px;height:53px;float:left;opacity:1" onclick="Select('45')"></div>
+				<div id="55" class="container" style="width:52px;height:53px;float:left;opacity:1" onclick="Select('55')"></div>
+				<div id="65" class="container" style="width:52px;height:53px;float:left;opacity:1" onclick="Select('65')"></div>
+				<div id="75" class="container" style="width:52px;height:53px;float:left;opacity:1" onclick="Select('75')"></div>
+				<div id="85" class="container" style="width:52px;height:53px;float:left;opacity:1" onclick="Select('85')"></div>
+				<div id="06" class="container" style="width:52px;height:53px;float:left;margin-left:30px;opacity:1" onclick="Select('06')"></div>
+				<div id="16" class="container" style="width:52px;height:53px;float:left;opacity:1" onclick="Select('16')"></div>
+				<div id="26" class="container" style="width:52px;height:53px;float:left;opacity:1" onclick="Select('26')"></div>
+				<div id="36" class="container" style="width:52px;height:53px;float:left;opacity:1" onclick="Select('36')"></div>
+				<div id="46" class="container" style="width:52px;height:53px;float:left;opacity:1" onclick="Select('46')"></div>
+				<div id="56" class="container" style="width:52px;height:53px;float:left;opacity:1" onclick="Select('56')"></div>
+				<div id="66" class="container" style="width:52px;height:53px;float:left;opacity:1" onclick="Select('66')"></div>
+				<div id="76" class="container" style="width:52px;height:53px;float:left;opacity:1" onclick="Select('76')"></div>
+				<div id="86" class="container" style="width:52px;height:53px;float:left;opacity:1" onclick="Select('86')"></div>
+				<div id="01" class="container" style="width:52px;height:53px;float:left;margin-left:30px;opacity:1" onclick="Select('07')"></div>
+				<div id="17" class="container" style="width:52px;height:53px;float:left;opacity:1" onclick="Select('17')"></div>
+				<div id="27" class="container" style="width:52px;height:53px;float:left;opacity:1" onclick="Select('27')"></div>
+				<div id="37" class="container" style="width:52px;height:53px;float:left;opacity:1" onclick="Select('77')"></div>
+				<div id="47" class="container" style="width:52px;height:53px;float:left;opacity:1" onclick="Select('47')"></div>
+				<div id="57" class="container" style="width:52px;height:53px;float:left;opacity:1" onclick="Select('57')"></div>
+				<div id="67" class="container" style="width:52px;height:53px;float:left;opacity:1" onclick="Select('67')"></div>
+				<div id="77" class="container" style="width:52px;height:53px;float:left;opacity:1" onclick="Select('77')"></div>
+				<div id="87" class="container" style="width:52px;height:53px;float:left;opacity:1" onclick="Select('87')"></div>
+				<div id="08" class="container" style="width:52px;height:53px;float:left;margin-left:30px;opacity:1" onclick="Select('08')"></div>
+				<div id="18" class="container" style="width:52px;height:53px;float:left;opacity:1" onclick="Select('18')"></div>
+				<div id="28" class="container" style="width:52px;height:53px;float:left;opacity:1" onclick="Select('28')"></div>
+				<div id="38" class="container" style="width:52px;height:53px;float:left;opacity:1" onclick="Select('38')"></div>
+				<div id="48" class="container" style="width:52px;height:53px;float:left;opacity:1" onclick="Select('48')"></div>
+				<div id="58" class="container" style="width:52px;height:53px;float:left;opacity:1" onclick="Select('58')"></div>
+				<div id="68" class="container" style="width:52px;height:53px;float:left;opacity:1" onclick="Select('68')"></div>
+				<div id="78" class="container" style="width:52px;height:53px;float:left;opacity:1" onclick="Select('78')"></div>
+				<div id="88" class="container" style="width:52px;height:53px;float:left;opacity:1" onclick="Select('88')"></div>
+				<div id="09" class="container" style="width:52px;height:53px;float:left;margin-left:30px;opacity:1" onclick="Select('09')"></div>
+				<div id="19" class="container" style="width:52px;height:53px;float:left;opacity:1" onclick="Select('19')"></div>
+				<div id="29" class="container" style="width:52px;height:53px;float:left;opacity:1" onclick="Select('29')"></div>
+				<div id="39" class="container" style="width:52px;height:53px;float:left;opacity:1" onclick="Select('39')"></div>
+				<div id="49" class="container" style="width:52px;height:53px;float:left;opacity:1" onclick="Select('49')"></div>
+				<div id="59" class="container" style="width:52px;height:53px;float:left;opacity:1" onclick="Select('59')"></div>
+				<div id="69" class="container" style="width:52px;height:53px;float:left;opacity:1" onclick="Select('69')"></div>
+				<div id="79" class="container" style="width:52px;height:53px;float:left;opacity:1" onclick="Select('79')"></div>
+				<div id="89" class="container" style="width:52px;height:53px;float:left;opacity:1" onclick="Select('89')"></div>
+				<!--<div id="20" class="container" style="width:52px;height:53px;float:left;margin-left:30px;opacity:1" onclick="Select('20')"></div>
+				<div id="21" class="container" style="width:52px;height:53px;float:left;opacity:1" onclick="Select('21')"></div>
+				<div id="22" class="container" style="width:52px;height:53px;float:left;opacity:1" onclick="Select('22')"></div>
+				<div id="23" class="container" style="width:52px;height:53px;float:left;opacity:1" onclick="Select('23')"></div>
+				<div id="24" class="container" style="width:52px;height:53px;float:left;opacity:1" onclick="Select('24')"></div>
+				<div id="25" class="container" style="width:52px;height:53px;float:left;opacity:1" onclick="Select('25')"></div>
+				<div id="26" class="container" style="width:52px;height:53px;float:left;opacity:1" onclick="Select('26')"></div>
+				<div id="27" class="container" style="width:52px;height:53px;float:left;opacity:1" onclick="Select('27')"></div>
+				<div id="28" class="container" style="width:52px;height:53px;float:left;opacity:1" onclick="Select('28')"></div>
+				<div id="30" class="container" style="width:52px;height:53px;float:left;margin-left:30px;opacity:1" onclick="Select('30')"></div>
+				<div id="31" class="container" style="width:52px;height:53px;float:left;opacity:1" onclick="Select('31')"></div>
+				<div id="32" class="container" style="width:52px;height:53px;float:left;opacity:1" onclick="Select('32')"></div>
+				<div id="33" class="container" style="width:52px;height:53px;float:left;opacity:1" onclick="Select('33')"></div>
+				<div id="34" class="container" style="width:52px;height:53px;float:left;opacity:1" onclick="Select('34')"></div>
+				<div id="35" class="container" style="width:52px;height:53px;float:left;opacity:1" onclick="Select('35')"></div>
+				<div id="36" class="container" style="width:52px;height:53px;float:left;opacity:1" onclick="Select('36')"></div>
+				<div id="37" class="container" style="width:52px;height:53px;float:left;opacity:1" onclick="Select('37')"></div>
+				<div id="38" class="container" style="width:52px;height:53px;float:left;opacity:1" onclick="Select('38')"></div>
+				<div id="40" class="container" style="width:52px;height:53px;float:left;margin-left:30px;opacity:1" onclick="Select('40')"></div>
+				<div id="41" class="container" style="width:52px;height:53px;float:left;opacity:1" onclick="Select('41')"></div>
+				<div id="42" class="container" style="width:52px;height:53px;float:left;opacity:1" onclick="Select('42')"></div>
+				<div id="43" class="container" style="width:52px;height:53px;float:left;opacity:1" onclick="Select('43')"></div>
+				<div id="44" class="container" style="width:52px;height:53px;float:left;opacity:1" onclick="Select('44')"></div>
+				<div id="45" class="container" style="width:52px;height:53px;float:left;opacity:1" onclick="Select('45')"></div>
+				<div id="46" class="container" style="width:52px;height:53px;float:left;opacity:1" onclick="Select('46')"></div>
+				<div id="47" class="container" style="width:52px;height:53px;float:left;opacity:1" onclick="Select('47')"></div>
+				<div id="48" class="container" style="width:52px;height:53px;float:left;opacity:1" onclick="Select('48')"></div>
+				<div id="50" class="container" style="width:52px;height:53px;float:left;margin-left:30px;opacity:1" onclick="Select('50')"></div>
+				<div id="51" class="container" style="width:52px;height:53px;float:left;opacity:1" onclick="Select('51')"></div>
+				<div id="52" class="container" style="width:52px;height:53px;float:left;opacity:1" onclick="Select('52')"></div>
+				<div id="53" class="container" style="width:52px;height:53px;float:left;opacity:1" onclick="Select('53')"></div>
+				<div id="54" class="container" style="width:52px;height:53px;float:left;opacity:1" onclick="Select('54')"></div>
+				<div id="55" class="container" style="width:52px;height:53px;float:left;opacity:1" onclick="Select('55')"></div>
+				<div id="56" class="container" style="width:52px;height:53px;float:left;opacity:1" onclick="Select('56')"></div>
+				<div id="57" class="container" style="width:52px;height:53px;float:left;opacity:1" onclick="Select('57')"></div>
+				<div id="58" class="container" style="width:52px;height:53px;float:left;opacity:1" onclick="Select('58')"></div>
+				<div id="60" class="container" style="width:52px;height:53px;float:left;margin-left:30px;opacity:1" onclick="Select('60')"></div>
+				<div id="61" class="container" style="width:52px;height:53px;float:left;opacity:1" onclick="Select('61')"></div>
+				<div id="62" class="container" style="width:52px;height:53px;float:left;opacity:1" onclick="Select('62')"></div>
+				<div id="63" class="container" style="width:52px;height:53px;float:left;opacity:1" onclick="Select('63')"></div>
+				<div id="64" class="container" style="width:52px;height:53px;float:left;opacity:1" onclick="Select('64')"></div>
+				<div id="65" class="container" style="width:52px;height:53px;float:left;opacity:1" onclick="Select('65')"></div>
+				<div id="66" class="container" style="width:52px;height:53px;float:left;opacity:1" onclick="Select('66')"></div>
+				<div id="67" class="container" style="width:52px;height:53px;float:left;opacity:1" onclick="Select('67')"></div>
+				<div id="68" class="container" style="width:52px;height:53px;float:left;opacity:1" onclick="Select('68')"></div>
+				<div id="70" class="container" style="width:52px;height:53px;float:left;margin-left:30px;opacity:1" onclick="Select('70')"></div>
+				<div id="71" class="container" style="width:52px;height:53px;float:left;opacity:1" onclick="Select('71')"></div>
+				<div id="72" class="container" style="width:52px;height:53px;float:left;opacity:1" onclick="Select('72')"></div>
+				<div id="73" class="container" style="width:52px;height:53px;float:left;opacity:1" onclick="Select('73')"></div>
+				<div id="74" class="container" style="width:52px;height:53px;float:left;opacity:1" onclick="Select('74')"></div>
+				<div id="75" class="container" style="width:52px;height:53px;float:left;opacity:1" onclick="Select('75')"></div>
+				<div id="76" class="container" style="width:52px;height:53px;float:left;opacity:1" onclick="Select('76')"></div>
+				<div id="77" class="container" style="width:52px;height:53px;float:left;opacity:1" onclick="Select('77')"></div>
+				<div id="78" class="container" style="width:52px;height:53px;float:left;opacity:1" onclick="Select('78')"></div>
+				<div id="80" class="container" style="width:52px;height:53px;float:left;margin-left:30px;opacity:1" onclick="Select('80')"></div>
+				<div id="81" class="container" style="width:52px;height:53px;float:left;opacity:1" onclick="Select('81')"></div>
+				<div id="82" class="container" style="width:52px;height:53px;float:left;opacity:1" onclick="Select('82')"></div>
+				<div id="83" class="container" style="width:52px;height:53px;float:left;opacity:1" onclick="Select('83')"></div>
+				<div id="84" class="container" style="width:52px;height:53px;float:left;opacity:1" onclick="Select('84')"></div>
+				<div id="85" class="container" style="width:52px;height:53px;float:left;opacity:1" onclick="Select('85')"></div>
+				<div id="86" class="container" style="width:52px;height:53px;float:left;opacity:1" onclick="Select('86')"></div>
+				<div id="87" class="container" style="width:52px;height:53px;float:left;opacity:1" onclick="Select('87')"></div>
+				<div id="88" class="container" style="width:52px;height:53px;float:left;opacity:1" onclick="Select('88')"></div>
+				<div id="90" class="container" style="width:52px;height:53px;float:left;margin-left:30px;opacity:1" onclick="Select('90')"></div>
+				<div id="91" class="container" style="width:52px;height:53px;float:left;opacity:1" onclick="Select('91')"></div>
+				<div id="92" class="container" style="width:52px;height:53px;float:left;opacity:1" onclick="Select('92')"></div>
+				<div id="93" class="container" style="width:52px;height:53px;float:left;opacity:1" onclick="Select('93')"></div>
+				<div id="94" class="container" style="width:52px;height:53px;float:left;opacity:1" onclick="Select('94')"></div>
+				<div id="95" class="container" style="width:52px;height:53px;float:left;opacity:1" onclick="Select('95')"></div>
+				<div id="96" class="container" style="width:52px;height:53px;float:left;opacity:1" onclick="Select('96')"></div>
+				<div id="97" class="container" style="width:52px;height:53px;float:left;opacity:1" onclick="Select('97')"></div>
+				<div id="98" class="container" style="width:52px;height:53px;float:left;opacity:1" onclick="Select('98')"></div>-->
+				<div id="begin" style="width:100%;height:100%;position:absolute;left:0px;background:url(img/drawable-xhdpi/矩形2拷贝.png);background-size:100% 100%" onclick="Start('begin')">
+					<img style="width:170px;height:70px;margin-top:247px;margin-left:180px"src="img/drawable-xhdpi/开始游戏.png">
+				</div>
+				<!--<div id="end" style="width:100%;height:100%;position:absolute;left:0px;background:url(img/drawable-xhdpi/结束画面_红.png);background-size:100% 100%" onclick="Start('begin')"><img style="width:170px;height:60px;margin-top:260px;margin-left:180px"src="img/drawable-xhdpi/再来一局.png"></div>-->
+			</div>
+		</div>
+		<script src="jquery-3.5.1.js"></script>
+		<script src="chess.js"></script>
+	</body>
+</HTML>
