@@ -4,6 +4,14 @@ move 下棋动作：就是下棋动作
 new_code 新的棋局状态码：棋局状态码 + 下棋动作
 color 下棋方: 当前要下棋的一方的颜色（红色：-1；黑色：1）
 
+数据库
+id=Column(Integer,primary_key=True)
+init=Column(String,index=True)
+color=Column(Integer)
+move=Column(String)
+result=Column(Integer)
+count=Column(Integer)
+
 
 # 前端任务
 1.UI设计
@@ -31,7 +39,7 @@ color 下棋方: 当前要下棋的一方的颜色（红色：-1；黑色：1）
     retrun True/False
 }
 2.2.getMove/人机下棋 (棋局状态码，下棋方) {
-    # 获取下棋动作
+    # 获取下棋动作，数据库查询，从符合的棋局状态中，选择一个出现频率最高的下棋动作
     ...
     # 如果获取不到（未见过的棋局），使用随机下棋
 
@@ -46,7 +54,7 @@ color 下棋方: 当前要下棋的一方的颜色（红色：-1；黑色：1）
 
 # 算法
 1.数据处理（完成）
-2.Spark及数据库搭建
+2.Spark及数据库搭建（完成）
 3.下棋规则及校验算法
 （完成；ps：简单测试通过，可能存在潜在BUG，需要前后端完成才能后进行测试）
 4.人机下棋算法
