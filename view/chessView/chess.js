@@ -132,7 +132,7 @@
 				 $.ajax({
 					  type: "get",
 					  url: "http://127.0.0.1:5000/learn",
-					  data: {state:state,move:move}, 
+					  data: {code:state,move:move}, 
 					  dataType: "json", //回调函数接收数据的数据格式	
 					  success: function(msg){
 						console.log(msg)
@@ -150,7 +150,7 @@
 				 $.ajax({
 					  type: "get",
 					  url: "http://127.0.0.1:5000/getMove",
-					  data: {state:Chess,color:1}, 
+					  data: {code:Chess,color:1}, 
 					  dataType: "json", //回调函数接收数据的数据格式	
 						async : false,
 					  success: function(msg){
