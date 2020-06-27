@@ -1,5 +1,5 @@
 import sys
-sys.path.append(".")
+sys.path.append("..")
 
 from algorithm.data_processing import *
 import numpy as np

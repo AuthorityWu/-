@@ -1,5 +1,5 @@
 import sys
-sys.path.append(".")
+sys.path.append("..")
 
 from algorithm.chess_rule import *
 import numpy as np
