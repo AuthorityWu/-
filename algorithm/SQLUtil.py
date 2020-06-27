@@ -71,10 +71,10 @@ def add_record(code, move):
     session=get_session()
     record = session.query(NextAction).filter(NextAction.init == code,NextAction.move==move).first()
 
-    if data != None:
+    if record != None:
         record.count += 1
-        sqlite.flush()
-        sqlite.commit()
+        session.flush()
+        session.commit()
         return 
     else:
         new_record = NextAction(
@@ -84,9 +84,8 @@ def add_record(code, move):
             result=0,
             count=1,
         )
-        sqlite = session()
-        sqlite.add(new_record)
-        sqlite.commit()
+        session.add(new_record)
+        session.commit()
         return 
 
 
