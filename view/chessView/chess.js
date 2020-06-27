@@ -88,28 +88,29 @@
 				var state=Chess.substring(0,chesspiece*2)+id+Chess.substring(chesspiece*2+2,64);
 				if(tar!=-1)
 					var state=state.substring(0,tar*2)+99+state.substring(tar*2+2,64);
-					console.log("flag:"+f);
-				 	$.ajax({
-					  type: "get",
-					  url: "http://127.0.0.1:5000/isLegal",
-					  data: {state:state,move:move}, 
-					  dataType: "json", //回调函数接收数据的数据格式
-					  async : false,				 
-					  success: function(msg){
-					   if(msg!=''){
-					   console.log(msg[0].flag) //将返回的json数据进行解析，并赋给data
-					   }
-					   console.log(msg); //控制台输出
-					   console.log(Chess);
-					   console.log(move);
-					   console.log(state);
+				console.log("flag:"+f);
+				$.ajax({
+					type: "get",
+					url: "http://127.0.0.1:5000/isLegal",
+					data: {code:Chess,move:move}, 
+					dataType: "json", //回调函数接收数据的数据格式
+					async : false,				 
+					success: function(msg){
+					if(msg!=''){
+						console.log(msg[0].flag) //将返回的json数据进行解析，并赋给data
+					}
+					console.log(msg); //控制台输出
+					console.log(Chess);
+					console.log(move);
+					console.log(state);
 					   // 对msg数据进行分析
-					   if(msg[0].flag == "true") {
+					if(msg[0].flag == "true") {
 					   console.log("ok")
 					   f=true;
-					   } else{
+					} 
+					else{
 					   f=false;
-					   }
+					}
 					   
 					  },
 					 
@@ -149,12 +150,12 @@
 				 $.ajax({
 					  type: "get",
 					  url: "http://127.0.0.1:5000/getMove",
-					  data: {state:Chess,flag:1}, 
+					  data: {state:Chess,color:1}, 
 					  dataType: "json", //回调函数接收数据的数据格式	
 						async : false,
 					  success: function(msg){
 					   if(msg!=''){
-							state=msg[0].state;
+							state=msg[0].new_code;
 							move=msg[0].move;
 							console.log(state);
 							console.log(move);
@@ -169,14 +170,25 @@
 					Black_move(state)
 				}
 			}
+			function end(){
+				if(Chess.substring(8,10)==99){
+						$("#Bigcontainer").append("<div class='end' style='width:100%;height:100%;position:absolute;left:0px;background:url(img/drawable-xhdpi/结束画面_黑.png);background-size:100% 100%' onclick='Start('begin')'><img style='width:170px;height:60px;margin-top:260px;margin-left:180px'src='img/drawable-xhdpi/再来一局.png' onclick='restart()'></div>")
+					}
+					else if(Chess.substring(40,42)==99){
+						$("#Bigcontainer").append("<div class='end' style='width:100%;height:100%;position:absolute;left:0px;background:url(img/drawable-xhdpi/结束画面_红.png);background-size:100% 100%' onclick='Start('begin')'><img style='width:170px;height:60px;margin-top:260px;margin-left:180px'src='img/drawable-xhdpi/再来一局.png' onclick='restart()'></div>")
+					}
+				
+			}
 			function Black_move(string){
 				BuildM(string);
+				end();
 				round=0;
 			}
+			
 			function Move(id){
 				//console.log('我是？？新的，要到的位置的id?'+id);
 			var img=matrix[selected.substring(0,1)][selected.substring(1,2)];
-				if(true){
+				if(Query(id,img)){
 					// 调用learn函数需要用到的变量
 					console.log("move")
 					var move=selected+id;
@@ -192,13 +204,7 @@
 					matrix[selected.substring(0,1)][selected.substring(1,2)]=-1
 					selected=null;
 					//console.log("黑将"+state.substring(40,42))
-					if(Chess.substring(8,10)==99){
-						$("#Bigcontainer").append("<div class='end' style='width:100%;height:100%;position:absolute;left:0px;background:url(img/drawable-xhdpi/结束画面_黑.png);background-size:100% 100%' onclick='Start('begin')'><img style='width:170px;height:60px;margin-top:260px;margin-left:180px'src='img/drawable-xhdpi/再来一局.png' onclick='restart()'></div>")
-					}
-					else if(Chess.substring(40,42)==99){
-						$("#Bigcontainer").append("<div class='end' style='width:100%;height:100%;position:absolute;left:0px;background:url(img/drawable-xhdpi/结束画面_红.png);background-size:100% 100%' onclick='Start('begin')'><img style='width:170px;height:60px;margin-top:260px;margin-left:180px'src='img/drawable-xhdpi/再来一局.png' onclick='restart()'></div>")
-					}
-						
+					end()
 					if(round==0)
 						round=2;
 					else if(round==2)
