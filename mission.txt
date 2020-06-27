@@ -34,12 +34,17 @@ count=Column(Integer)
 # 后端任务
 1.搭建Flask
 2.API请求处理
+相关可调用文件及函数
+chess_check.py      ：  is_legal(), is_over()
+play_chess.py         ：  get_move(), get_random_move(), move()
+SQLUtil.py                ： init()数据库创建(已经创建了就不需要), get_record()记录获取, 待编写add_record()
+
 2.1.isLegal/棋局合法性检验 (棋局状态码) {
     ...
     retrun True/False
 }
 2.2.getMove/人机下棋 (棋局状态码，下棋方) {
-    # 获取下棋动作，数据库查询，从符合的棋局状态中，选择一个出现频率最高的下棋动作
+    # 获取下棋动作
     ...
     # 如果获取不到（未见过的棋局），使用随机下棋
 
@@ -47,6 +52,13 @@ count=Column(Integer)
 }
 2.3.learn/人机在线学习（棋局状态码，下棋动作）{
     # 数据库存储相应的棋局状态码及下棋动作
+    （自行在SQLUtil.py下编写add_record()函数：{ 
+            查找要学习的棋局状态
+            if 这个棋局是否出现过:
+                频率+1
+            else:
+                直接新增且频率为1
+            }）
 }
 2.4.isOver/游戏是否结束（棋局状态码）{
     return True/False
@@ -55,10 +67,9 @@ count=Column(Integer)
 # 算法
 1.数据处理（完成）
 2.Spark及数据库搭建（完成）
-3.下棋规则及校验算法
+3.下棋规则及校验算法（待测试）
 （完成；ps：简单测试通过，可能存在潜在BUG，需要前后端完成才能后进行测试）
-4.人机下棋算法
-（部分完成；ps：由于真正的人机下棋算法未完成，暂时用 get_random_move() 即随机生成下一步函数作为代替进行测试）
+4.人机下棋算法（完成）
 
 
 # 爬虫
