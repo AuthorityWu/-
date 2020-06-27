@@ -11,7 +11,11 @@ from algorithm.play_chess import *
 from algorithm.chess_check import *
 from algorithm.SQLUtil import *
 
+
 app = Flask(__name__)
+
+from flask_cors import CORS    
+CORS(app,  resources={r"/*": {"origins": "*"}})
 
 @app.route('/getMove')
 def get_move():
