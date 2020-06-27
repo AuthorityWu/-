@@ -132,7 +132,7 @@
 				 $.ajax({
 					  type: "get",
 					  url: "http://127.0.0.1:5000/learn",
-					  data: {code:state,move:move}, 
+					  data: {state:state,move:move}, 
 					  dataType: "json", //回调函数接收数据的数据格式	
 					  success: function(msg){
 						console.log(msg)
@@ -150,7 +150,7 @@
 				 $.ajax({
 					  type: "get",
 					  url: "http://127.0.0.1:5000/getMove",
-					  data: {code:Chess,color:1}, 
+					  data: {state:Chess,color:1}, 
 					  dataType: "json", //回调函数接收数据的数据格式	
 						async : false,
 					  success: function(msg){
@@ -170,10 +170,21 @@
 					Black_move(state)
 				}
 			}
+			function end(){
+				if(Chess.substring(8,10)==99){
+						$("#Bigcontainer").append("<div class='end' style='width:100%;height:100%;position:absolute;left:0px;background:url(img/drawable-xhdpi/结束画面_黑.png);background-size:100% 100%' onclick='Start('begin')'><img style='width:170px;height:60px;margin-top:260px;margin-left:180px'src='img/drawable-xhdpi/再来一局.png' onclick='restart()'></div>")
+					}
+					else if(Chess.substring(40,42)==99){
+						$("#Bigcontainer").append("<div class='end' style='width:100%;height:100%;position:absolute;left:0px;background:url(img/drawable-xhdpi/结束画面_红.png);background-size:100% 100%' onclick='Start('begin')'><img style='width:170px;height:60px;margin-top:260px;margin-left:180px'src='img/drawable-xhdpi/再来一局.png' onclick='restart()'></div>")
+					}
+				
+			}
 			function Black_move(string){
 				BuildM(string);
+				end();
 				round=0;
 			}
+			
 			function Move(id){
 				//console.log('我是？？新的，要到的位置的id?'+id);
 			var img=matrix[selected.substring(0,1)][selected.substring(1,2)];
@@ -193,13 +204,7 @@
 					matrix[selected.substring(0,1)][selected.substring(1,2)]=-1
 					selected=null;
 					//console.log("黑将"+state.substring(40,42))
-					if(Chess.substring(8,10)==99){
-						$("#Bigcontainer").append("<div class='end' style='width:100%;height:100%;position:absolute;left:0px;background:url(img/drawable-xhdpi/结束画面_黑.png);background-size:100% 100%' onclick='Start('begin')'><img style='width:170px;height:60px;margin-top:260px;margin-left:180px'src='img/drawable-xhdpi/再来一局.png' onclick='restart()'></div>")
-					}
-					else if(Chess.substring(40,42)==99){
-						$("#Bigcontainer").append("<div class='end' style='width:100%;height:100%;position:absolute;left:0px;background:url(img/drawable-xhdpi/结束画面_红.png);background-size:100% 100%' onclick='Start('begin')'><img style='width:170px;height:60px;margin-top:260px;margin-left:180px'src='img/drawable-xhdpi/再来一局.png' onclick='restart()'></div>")
-					}
-						
+					end()
 					if(round==0)
 						round=2;
 					else if(round==2)
