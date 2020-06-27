@@ -10,10 +10,10 @@ from sqlalchemy.orm import sessionmaker,scoped_session
 import json
 
 import sys
-sys.path.append(".")
+sys.path.append("..")
 
 from algorithm.data_processing import num_split
-SQL_Address='sqlite:///./dataset/record.db'
+SQL_Address='sqlite:///../dataset/record.db'
 # FILE_Address='../dataset/status_count.json'
 Base=declarative_base()
 engine = create_engine(SQL_Address)

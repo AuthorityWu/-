@@ -3,7 +3,7 @@ print(os.getcwd()) #获取当前工作目录路径
 print(os.path.abspath('.')) #获取当前工作目录路径
 
 import sys
-sys.path.append(".")
+sys.path.append("..")
 
 from flask import Flask, jsonify, request, abort
 

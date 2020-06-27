@@ -3,11 +3,11 @@ import os
 
 # print(os.getcwd()) #获取当前工作目录路径
 # print(os.path.abspath('.')) #获取当前工作目录路径
-input_path = "../data/chessdata.json"
-output_path = "../data/output_chessdata.json"
+# input_path = "../data/chessdata.json"
+# output_path = "../data/output_chessdata.json"
 
-with open(input_path, "r") as f:
-    input_data = json.load(f)
+# with open(input_path, "r") as f:
+#     input_data = json.load(f)
 
 output_data = []
 
@@ -78,8 +78,8 @@ def data_process(input_data):
         # print("### ", cnt)        
         cnt += 1
 
-if __name__ == "__main__":    
-    data_process(input_data)
+# if __name__ == "__main__":    
+#     data_process(input_data)
 
-    with open(output_path,"w") as f:
-        json.dump(output_data, f)
+#     with open(output_path,"w") as f:
+#         json.dump(output_data, f)
