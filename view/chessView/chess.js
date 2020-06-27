@@ -91,20 +91,21 @@
 				console.log("flag:"+f);
 				$.ajax({
 					type: "get",
-					url: "http://127.0.0.1:5000/isLegal",
+					url: "http://120.79.195.191:80/isLegal",
 					data: {code:Chess,move:move}, 
 					dataType: "json", //回调函数接收数据的数据格式
 					async : false,				 
 					success: function(msg){
+					//console.log("link")
 					if(msg!=''){
-						console.log(msg[0].flag) //将返回的json数据进行解析，并赋给data
+						console.log(msg.flag) //将返回的json数据进行解析，并赋给data
 					}
-					console.log(msg); //控制台输出
-					console.log(Chess);
-					console.log(move);
-					console.log(state);
+					//console.log(msg); //控制台输出
+					//console.log(Chess);
+					//console.log(move);
+					//console.log(state);
 					   // 对msg数据进行分析
-					if(msg[0].flag == "true") {
+					if(msg.flag == true) {
 					   console.log("ok")
 					   f=true;
 					} 
@@ -131,11 +132,11 @@
 			function Learn(state,move){
 				 $.ajax({
 					  type: "get",
-					  url: "http://127.0.0.1:5000/learn",
-					  data: {state:state,move:move}, 
+					  url: "http://120.79.195.191:80/learn",
+					  data: {code:state,move:move}, 
 					  dataType: "json", //回调函数接收数据的数据格式	
 					  success: function(msg){
-						console.log(msg)
+						console.log("learn ok")
 					   
 					  },
 					 
@@ -147,22 +148,24 @@
 			function Ask_for_black(){
 				var state=null;
 				var move=null;
+				//console.log("black1")
 				 $.ajax({
 					  type: "get",
-					  url: "http://127.0.0.1:5000/getMove",
-					  data: {state:Chess,color:1}, 
+					  url: "http://120.79.195.191:80/getMove",
+					  data: {code:Chess,color:"1"}, 
 					  dataType: "json", //回调函数接收数据的数据格式	
 						async : false,
 					  success: function(msg){
+						console.log("black")
 					   if(msg!=''){
-							state=msg[0].new_code;
-							move=msg[0].move;
-							console.log(state);
-							console.log(move);
+							state=msg.new_code;
+							move=msg.move;
+							console.log("新+"+state);
+							console.log("新+"+move);
 					   }
 					  },
 					  error:function(msg){
-					   console.log(msg);
+					   console.log("blackfaled");
 					  }
 					  });
 				if(state!=null&&move!=null){
@@ -216,9 +219,10 @@
 					Learn(Chess,move);
 					// 成功移动后，更新棋局状态
 					Chess = state;
+					console.log(round)
 					if(round==2)
 						Ask_for_black();//红棋移动成功后黑棋移动
-					console.log(Chess);
+					//console.log(Chess);
 				}
 			}
 			function Select(id){
