@@ -16,19 +16,19 @@ count=Column(Integer)
 # 前端任务
 1.UI设计
 2.API请求
-2.1.isLegal/棋局合法性检验 (棋局状态码) {
+2.1.isLegal/棋局合法性检验 (棋局状态码， ，下棋动作) {
     ...
-    retrun True/False
+    retrun {'flag' : True/False}
 }
 2.2.getMove/人机下棋 (棋局状态码，下棋方) {
     ...
-    return {新的棋局状态码，下棋动作}
+    return {'new_code': 新的棋局状态码，'move':下棋动作}
 }
 2.3.learn/人机在线学习（(用户的)棋局状态码，(用户的)下棋动作）{
     ...
 }
 2.4.isOver/游戏是否结束（棋局状态码）{
-    return True/False
+    return {'color': 下棋方} # 未结束则为0
 }
 
 # 后端任务
@@ -39,16 +39,16 @@ chess_check.py      ：  is_legal(), is_over()
 play_chess.py         ：  get_move(), get_random_move(), move()
 SQLUtil.py                ： init()数据库创建(已经创建了就不需要), get_record()记录获取, 待编写add_record()
 
-2.1.isLegal/棋局合法性检验 (棋局状态码) {
+2.1.isLegal/棋局合法性检验 (棋局状态码，下棋动作) {
     ...
-    retrun True/False
+    retrun {'flag' : True/False}
 }
 2.2.getMove/人机下棋 (棋局状态码，下棋方) {
     # 获取下棋动作
     ...
     # 如果获取不到（未见过的棋局），使用随机下棋
 
-    return {新的棋局状态码，下棋动作}
+    return {'new_code': 新的棋局状态码，'move':下棋动作}
 }
 2.3.learn/人机在线学习（棋局状态码，下棋动作）{
     # 数据库存储相应的棋局状态码及下棋动作
@@ -61,7 +61,7 @@ SQLUtil.py                ： init()数据库创建(已经创建了就不需要)
             }）
 }
 2.4.isOver/游戏是否结束（棋局状态码）{
-    return True/False
+    return {'color': 下棋方} # 未结束则为0
 }
 
 # 算法
