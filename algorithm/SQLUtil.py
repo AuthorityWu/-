@@ -8,6 +8,7 @@ from sqlalchemy import create_engine,Column,Integer,String
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker,scoped_session
 import json
+from data_processing import *
 SQL_Address='sqlite:///../dataset/record.db'
 FILE_Address='../dataset/status_count.json'
 Base=declarative_base()
@@ -58,7 +59,36 @@ def get_record(initstring,color):
         data.append(d.to_dict())
     return data
 
+def add_record(code, move):
+    init = num_split(code, step=2)
+    color = 0
+    ind = init.index(move[:2])
+    if ind < 16:
+        color = -1
+    else:
+        color = 1
+
+    session=get_session()
+    record = session.query(NextAction).filter(NextAction.init == code,NextAction.move==move).first()
+
+    if data != None:
+        record.count += 1
+        sqlite.flush()
+        sqlite.commit()
+        return 
+    else:
+        new_record = NextAction(
+            init=code,
+            color=color,
+            move=move,
+            result=0,
+            count=1,
+        )
+        sqlite = session()
+        sqlite.add(new_record)
+        sqlite.commit()
+        return 
 
 
-if __name__=="__main__":
-    init()
+# if __name__=="__main__":
+#     init()
