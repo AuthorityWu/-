@@ -1,9 +1,12 @@
-from chess_check import *
+import sys
+sys.path.append(".")
+
+from algorithm.chess_check import *
 import json 
 import os
-from data_processing import *
+from algorithm.data_processing import *
 import numpy as np
-from play_chess import *
+from algorithm.play_chess import *
 
 input_path = "../data/output_chessdata.json"
 

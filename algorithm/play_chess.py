@@ -1,8 +1,11 @@
-from data_processing import *
+import sys
+sys.path.append(".")
+
+from algorithm.data_processing import *
 import numpy as np
-from chess_check import *
+from algorithm.chess_check import *
 import scipy.stats as st
-from SQLUtil import get_record
+from algorithm.SQLUtil import get_record
 
 class PlayChess():
     def __init__(self):

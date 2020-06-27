@@ -1,6 +1,9 @@
-from chess_rule import *
+import sys
+sys.path.append(".")
+
+from algorithm.chess_rule import *
 import numpy as np
-from data_processing import num_split
+from algorithm.data_processing import num_split
 
 class ChessCheck():
 

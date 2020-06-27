@@ -8,9 +8,13 @@ from sqlalchemy import create_engine,Column,Integer,String
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker,scoped_session
 import json
-from data_processing import *
-SQL_Address='sqlite:///../dataset/record.db'
-FILE_Address='../dataset/status_count.json'
+
+import sys
+sys.path.append(".")
+
+from algorithm.data_processing import num_split
+SQL_Address='sqlite:///./dataset/record.db'
+# FILE_Address='../dataset/status_count.json'
 Base=declarative_base()
 engine = create_engine(SQL_Address)
 
