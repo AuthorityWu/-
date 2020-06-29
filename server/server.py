@@ -21,17 +21,19 @@ CORS(app,  resources={r"/*": {"origins": "*"}})
 def get_move():
     code=request.args.get('code')
     color=int(request.args.get('color'))
-    print("code: ", code)
+    # print("code: ", code)
     move = PlayChess.get_move(code,color)
-    
+    which = "查询"
     if move is None:
         move = PlayChess.get_random_move(code,color)
+        which = "随机"
 
     new_code = PlayChess.move(code,move)
 
     return jsonify({
         'new_code':new_code,
-        'move':move
+        'move':move,
+        'which': which
         })
 
 @app.route('/isLegal')
