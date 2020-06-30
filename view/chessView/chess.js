@@ -1,6 +1,6 @@
  var	Newchess="8979695949392919097717866646260600102030405060708012720323436383";
 			var Chess="8979695949392919097717866646260600102030405060708012720323436383";
-			var Chesspiece=["红車","红马","相","仕","帅","仕","相","红马","红車","红炮","红炮","兵","兵","兵","兵","兵","黑車","黑马","象","士","将","士","象","黑马","黑車","砲","砲","卒","卒","卒","卒","卒"];
+			var Chesspiece=["红車","红马","红相","红仕","红帅","红仕","红相","红马","红車","红炮","红炮","红兵","红兵","红兵","红兵","红兵","黑車","黑马","黑象","黑士","黑将","黑士","黑象","黑马","黑車","黑砲","黑砲","黑卒","黑卒","黑卒","黑卒","黑卒"];
 			var matrix=new Array(9);
 			var round=0;
 			var selected=null;
@@ -38,7 +38,7 @@
 			
 			}
 			function BuildM(string){
-				console.log('blackmove+'+string)
+				//console.log('blackmove+'+string)
 				$(".end").remove();
 				$(".img_chess").remove();
 				Chess=string
@@ -68,7 +68,7 @@
 					flag+=2;
 					
 				}
-				console.log(matrix)
+				//console.log(matrix)
 			}
 			function Start(begin){
 				var flag=0;
@@ -110,7 +110,7 @@
 				var state=Chess.substring(0,chesspiece*2)+id+Chess.substring(chesspiece*2+2,64);
 				if(tar!=-1)
 					var state=state.substring(0,tar*2)+99+state.substring(tar*2+2,64);
-				console.log("flag:"+f);
+				//console.log("flag:"+f);
 				$.ajax({
 					type: "get",
 					url: "http://120.79.195.191:80/isLegal",
@@ -128,7 +128,7 @@
 					//console.log(state);
 					   // 对msg数据进行分析
 					if(msg.flag == true) {
-					   console.log("ok")
+					  // console.log("ok")
 					   Chess=state;
 					   f=true;
 					} 
@@ -143,7 +143,7 @@
 					   return false;
 					  }
 					  });
-					  console.log("flag:"+f)
+					  //console.log("flag:"+f)
 					  
 					  return f;
 				/*$.getJSON('http://127.0.0.1:5000/Login?name=ll&pw=123&callback=?', function(data){
@@ -202,11 +202,11 @@
 			}
 			function end(){
 				if(Chess.substring(8,10)==99){
-						$("#Bigcontainer").append("<div class='end' style='width:100%;height:100%;position:absolute;left:0px;background:url(img/drawable-xhdpi/结束画面_黑.png);background-size:100% 100%' onclick='Start('begin')'><img style='width:170px;height:60px;margin-top:260px;margin-left:180px'src='img/drawable-xhdpi/再来一局.png' onclick='restart()'></div>")
+						$("#Bigcontainer").append("<div class='end' style='width:100%;height:100%;position:absolute;left:0px;background:url(img/drawable-xhdpi/结束画面黑胜.png);background-size:100% 100%' onclick='Start('begin')'><img style='width:170px;height:60px;margin-top:260px;margin-left:180px'src='img/drawable-xhdpi/再来一局.png' onclick='restart()'></div>")
 						return false;
 					}
 				else if(Chess.substring(40,42)==99){
-						$("#Bigcontainer").append("<div class='end' style='width:100%;height:100%;position:absolute;left:0px;background:url(img/drawable-xhdpi/结束画面_红.png);background-size:100% 100%' onclick='Start('begin')'><img style='width:170px;height:60px;margin-top:260px;margin-left:180px'src='img/drawable-xhdpi/再来一局.png' onclick='restart()'></div>")
+						$("#Bigcontainer").append("<div class='end' style='width:100%;height:100%;position:absolute;left:0px;background:url(img/drawable-xhdpi/结束画面红胜.png);background-size:100% 100%' onclick='Start('begin')'><img style='width:170px;height:60px;margin-top:260px;margin-left:180px'src='img/drawable-xhdpi/再来一局.png' onclick='restart()'></div>")
 						return false;
 					}
 				else return true;
@@ -265,7 +265,7 @@
 			function Select(id){
 					//$("#"+id).css("opacity","0.8");
 					//console.log(matrix[id.substring(0,1)][id.substring(1,2)]);
-					console.log(id);
+					//console.log(id);
 					var chesspiece=matrix[id.substring(0,1)][id.substring(1,2)]
 					if(((round==0&&chesspiece<=15)||(round==2&&chesspiece>=16))&&chesspiece!=-1){
 						if(matrix[id.substring(0,1)][id.substring(1,2)]!=-1){
@@ -291,7 +291,7 @@
 					else{
 						
 						if(selected!=null){
-							console.log("选中"+selected)
+							//console.log("选中"+selected)
 							Move(id)
 						}
 					}
